@@ -190,7 +190,9 @@ func SetDefaultLinks() []Link {
 func SetLicenseLinks(l *License, c index.Content) error {
 
 	// set the links
-	l.Links = SetDefaultLinks()
+	if len(l.links) == 0 {
+		l.Links = SetDefaultLinks()
+	} 
 
 	for i := 0; i < len(l.Links); i++ {
 		// publication link
